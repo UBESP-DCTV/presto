@@ -1,5 +1,12 @@
 # presto 0.0.0.9000
 
+* Added `{renv}` support and environment
+* Added spellcheck support
+* Added support for usethis_ui interface
+* Added support for `%>%` (pipe) and `tibble()`
+* Added `{lintr}`, `{covr}` support including automatic CI using
+  GitHub-actions on the current (4.0.0) release, devel, and four
+  previous versions of R
 * Added support for git/github
 * Added `data/` folder to store the project's data
 * Added package doc and `{roxygen2}` support

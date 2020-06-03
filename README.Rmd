@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![R build status](https://github.com/UBESP-DCTV/presto/workflows/R-CMD-check/badge.svg)](https://github.com/UBESP-DCTV/presto/actions)
+[![Codecov test coverage](https://codecov.io/gh/UBESP-DCTV/presto/branch/master/graph/badge.svg)](https://codecov.io/gh/UBESP-DCTV/presto?branch=master)
 <!-- badges: end -->
 
 The goal of `{presto}` is to provide the R infrastructure for the

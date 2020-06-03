@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^presto\.ubesp\.Rproj$
 ^\.Rproj\.user$
 ^analyses$
@@ -5,3 +7,5 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^CODE_OF_CONDUCT\.md$
+^\.github$
+^codecov\.yml$
