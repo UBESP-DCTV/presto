@@ -1,5 +1,8 @@
+# presto (development version)
+
 # presto 0.0.0.9000
 
+* Added `dev/02-dev.R` to track development history
 * Added `{renv}` support and environment
 * Added spellcheck support
 * Added support for usethis_ui interface
@@ -17,3 +20,4 @@
 * Added `README.rmd` file as home page for the project
 * Added GPL3 license
 * Added a `NEWS.md` file to track changes to the package.
+* Added `dev/01-setup.R` to track setup history

@@ -4,7 +4,8 @@
 
 devubesp::create_ubesp_analysis("presto")
 use_directory("dev", TRUE)
-
+fs::file_create("dev/01_setup.R")
+rstudioapi::navigateToFile("dev/01-setup.R")
 
 # Documentation ---------------------------------------------------
 
@@ -73,5 +74,6 @@ devtools::document(
 # renv ------------------------------------------------------------
 
 renv::init()
-
+fs::file_create("dev/02_dev.R")
+rstudioapi::navigateToFile("dev/02_dev.R")
 
