@@ -2,6 +2,7 @@
 
 export("%>%")
 export(fetch_analytics)
+export(get_domain)
 importFrom(magrittr,"%>%")
 importFrom(tibble,tibble)
 importFrom(usethis,ui_code)
