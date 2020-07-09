@@ -51,7 +51,7 @@ fetch_analytics <- function(
 ) {
 
   email <- email %||% "gregoridar@gmail.com"
-  view_id <- view_id %||% "219293149"
+  view_id <- view_id %||% "214106116"
 
   ga_auth(email = email)
 
