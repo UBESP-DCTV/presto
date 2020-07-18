@@ -435,6 +435,18 @@
       "Repository": "CRAN",
       "Hash": "7d7f283939f563670a697165b2cf5560"
     },
+    "growthcurve": {
+      "Package": "growthcurve",
+      "Version": "1.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "briandconnelly",
+      "RemoteRepo": "growthcurve",
+      "RemoteRef": "master",
+      "RemoteSha": "b763c288a21de27ec98b1e204bd4d8d28c3c37fa",
+      "Hash": "f8f2389ea98bd677e29bbda4eaf83f57"
+    },
     "gtable": {
       "Package": "gtable",
       "Version": "0.3.0",
