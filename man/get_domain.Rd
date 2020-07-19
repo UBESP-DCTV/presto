@@ -4,13 +4,24 @@
 \alias{get_domain}
 \title{Get domain}
 \usage{
-get_domain(url)
+get_domain(url, include_suffix = TRUE)
 }
 \arguments{
-\item{url}{(chr)}
+\item{url}{(chr) url from which extract the domain}
+
+\item{include_suffix}{(lgl, default FALSE) would you like to get the
+suffix too (dot included)?}
 }
 \description{
 Get domain
+}
+\examples{
+get_domain("www.example.com")
+get_domain("http://www.example.com")
+get_domain("https://www.example.com")
+get_domain("example.com")
+get_domain("https://www.example.com/foo/bar?tar")
+get_domain("https://www.foo.example.com/bar?tar")
 }
 \seealso{
 https://stackoverflow.com/questions/19020749/function-to-extract-domain-name-from-url-in-r

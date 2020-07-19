@@ -12,3 +12,6 @@ usethis::use_r("get_domain")
 # Authenticate with an email that has access to the
 # Google Analytics View you want to use.
 googleAnalyticsR::ga_auth()
+
+
+devtools::check_man()

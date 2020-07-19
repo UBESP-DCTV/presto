@@ -1,0 +1,87 @@
+---
+title: "#PRESTOinsieme across CoViD-19 outbreack period"
+author: "Corrado Lanera"
+date: "`r Sys.Date()`</br> ![](https://img.shields.io/badge/version-0.0.1-blue.svg)"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+if (file.exists(usethis::proj_path("DESCRIPTION"))) {
+  devtools::load_all(quiet = TRUE)
+} else {
+  if (!requireNamespace("presto")) {
+    stop(
+      "It seems you do not have installed the {presto} package.\n\n",
+      "You can install {presto} running:\n",
+      "    remotes::install_github('UBESP-DCTV/presto')"
+    )
+  }
+  library(presto, quietly = TRUE)
+}
+
+library(tidyverse)
+library(Hmisc, quietly = TRUE)
+```
+
+
+
+```{r}
+n_survay <- presto_base %>%
+  dplyr::with_groups(c(date, completed), count) %>% 
+  group_by(completed) %>% 
+  arrange(date) %>% 
+  dplyr::mutate(cum = cumsum(n)) %>% 
+  ungroup()
+
+covid_tot <- covid_prov %>% 
+  group_by(date) %>% 
+  summarise(tot = sum(totale_casi))
+```
+
+```{r}
+n_survay %>% 
+  ggplot(aes(x = date, y = cum, colour = completed)) +
+  geom_line() +
+  geom_line(data = covid_tot, aes(x = date, y = tot/100), colour = "blue") +
+  ggtitle("Cumulative CoViD-19 cases/100 (blue), and surveys (green and red) over time.")
+```
+
+```{r}
+n_survay %>%
+  group_by(date) %>% 
+  summarise(n = sum(n, na.rm = TRUE)) %>%
+  mutate(cum = cumsum(n)) %>% 
+  right_join(covid_tot) %>% 
+  mutate(tot = tot/100) %>% 
+  rename(`n surveys` = cum, `covid/100` = tot) %>% 
+  pivot_longer(c(`n surveys`, `covid/100`), names_to = "measure") %>%
+  group_by(measure) %>% 
+  arrange(date) %>% 
+  fill(value) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = date, y =  value, colour = measure)) +
+  geom_line() +
+  ggtitle("Overall number of surveys and CoViD-19 cases/100 in Italy over time.")
+```
+
+
+```{r}
+desc <- describe(presto_base)
+plot(desc)
+html(desc)
+
+db_to_desc <- presto_base %>%
+  select(last_page, domain, completed, country_name, region_name, status) %>% 
+  mutate(across(is.character, as.factor))
+
+summary(
+  completed ~ .,
+  data = db_to_desc,
+  method = "reverse",
+  overall = TRUE,
+  continuous = 4,
+  test = TRUE
+) %>% 
+  print(prtest = "P", exclude1 = FALSE, long = TRUE)
+```
+
