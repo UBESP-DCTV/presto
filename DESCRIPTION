@@ -33,11 +33,9 @@ Suggests:
     readxl,
     here,
     janitor,
+    depigner,
     rgeolocate
 Remotes: 
-    CorradoLanera/autotestthat,
-    CorradoLanera/depigner,
-    CorradoLanera/usethis,
     MarkEdmondson1234/googleAnalyticsR,
     MarkEdmondson1234/googleAuthR,
     briandconnelly/growthcurve
