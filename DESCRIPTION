@@ -19,12 +19,13 @@ Depends:
     googleAnalyticsR,
     R (>= 2.10)
 Imports: 
-    depigner (>= 0.8.1.9000),
+    depigner,
     magrittr,
     tibble,
     usethis,
     googleAuthR (>= 1.3.0.9000),
-    growthcurve (>= 1.0.0.9000)
+    growthcurve (>= 1.0.0.9000),
+    covid19ita (>= 0.93.0)
 Suggests: 
     autotestthat (>= 0.1.1),
     covr,
@@ -33,12 +34,12 @@ Suggests:
     readxl,
     here,
     janitor,
-    depigner,
     rgeolocate
-Remotes: 
+Remotes:  
     MarkEdmondson1234/googleAnalyticsR,
     MarkEdmondson1234/googleAuthR,
-    briandconnelly/growthcurve
+    briandconnelly/growthcurve,
+    UBESP-DCTV/covid19ita
 Encoding: UTF-8
 Language: en-US
 LazyData: true

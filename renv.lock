@@ -330,10 +330,10 @@
     },
     "depigner": {
       "Package": "depigner",
-      "Version": "0.8.1.9000",
+      "Version": "0.8.1",
       "Source": "Repository",
-      "Repository": null,
-      "Hash": "6276c4ae083ee447aa068117c897a16a"
+      "Repository": "CRAN",
+      "Hash": "ba51436f5077a04be67621ad11118520"
     },
     "desc": {
       "Package": "desc",
