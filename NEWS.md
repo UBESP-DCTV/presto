@@ -1,5 +1,8 @@
 # presto (development version)
 
+* Added `get_domain()` to extract domains names from URLs.
+
+
 # presto 0.0.0.9000
 
 * Added `dev/02-dev.R` to track development history

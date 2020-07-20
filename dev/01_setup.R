@@ -24,13 +24,13 @@ usethis::use_spell_check()
 # Interface -------------------------------------------------------
 
 # remotes::install_github("CorradoLanera/usethis")
-usethis::use_dev_package("usethis")
-usethis::use_ui()
+usethis::use_dev_package("depigner")
+depigner::use_ui()
 
-usethis::use_data()
 usethis::use_pipe()
+usethis::use_test("pipe")
 usethis::use_tibble()
-usethis::use_r("utils")
+usethis::use_test("utils"); usethis::use_r("utils")
 
 
 
@@ -49,31 +49,59 @@ usethis::use_tidy_github()
 usethis::use_testthat()
 usethis::use_dev_package("autotestthat", type = "Suggests")
 
-usethis::use_test("pipe")
-usethis::use_test("utils")
-
-usethis::use_tidy_github_actions()
-usethis::use_github_action("lint")
-usethis::use_github_action("test-coverage")
-usethis::use_coverage()
 
 
 
 # finalization ----------------------------------------------------
 
 usethis::use_tidy_description()
+devtools::check_man()
 spelling::spell_check_package()
+spelling::update_wordlist()
 lintr::lint_package()
 
-devtools::document(
-  roclets = c('rd', 'collate', 'namespace', 'vignette')
-)
+devtools::test()
+devtools::check()
 
 
-
-# renv ------------------------------------------------------------
+# `{renv}` (after git!) -------------------------------------------
 
 renv::init()
+renv::status()
+
+
+
+
+# Actions (after `{renv}`!) ---------------------------------------
+
+usethis::use_github_action(
+  url = "https://raw.githubusercontent.com/CorradoLanera/actions/master/pkgdown.yaml"
+)
+usethis::use_github_actions_badge("pkgdown")
+
+renv::install("GuangchuangYu/badger")
+badger::badge_custom("WEBsite", "click-me", "orange", "https://ubesp-dctv.github.io/presto/")
+
+usethis::use_github_action(
+  url = "https://raw.githubusercontent.com/CorradoLanera/actions/master/lint-renv.yaml"
+)
+usethis::use_github_actions_badge("lint")
+
+usethis::use_github_action(
+  url = "https://raw.githubusercontent.com/CorradoLanera/actions/master/R-CMD-check-renv.yaml"
+)
+usethis::use_github_actions_badge("R-CMD-check")
+
+usethis::use_github_action(
+  url = "https://raw.githubusercontent.com/CorradoLanera/actions/master/covr-renv.yaml"
+)
+usethis::use_github_actions_badge("test-coverage")
+
+
+
+# next steps ------------------------------------------------------
+
+usethis::use_version("dev")
 fs::file_create("dev/02_dev.R")
 rstudioapi::navigateToFile("dev/02_dev.R")
 

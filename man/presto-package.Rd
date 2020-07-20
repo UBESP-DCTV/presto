@@ -21,5 +21,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Corrado Lanera \email{corrado.lanera@gmail.com} (\href{https://orcid.org/0000-0002-0520-7428}{ORCID})
 
+Other contributors:
+\itemize{
+  \item UBESP (University of Padova) \email{gredar@msn.com} [copyright holder]
+}
+
 }
 \keyword{internal}
