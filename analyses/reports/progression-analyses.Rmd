@@ -1,8 +1,13 @@
 ---
-title: "#PRESTOinsieme across CoViD-19 outbreack period"
+title: '#PRESTOinsieme across CoViD-19 outbreack period'
 author: "Corrado Lanera"
-date: "`r Sys.Date()`</br> ![](https://img.shields.io/badge/version-0.0.1-blue.svg)"
-output: html_notebook
+date: '`r Sys.Date()`</br> ![](https://img.shields.io/badge/version-0.0.1-blue.svg)'
+output:
+  word_document: 
+    reference: "template.docx"
+  html_notebook: default
+params: 
+  html: FALSE
 ---
 
 ```{r setup, include=FALSE}
@@ -21,6 +26,29 @@ if (file.exists(usethis::proj_path("DESCRIPTION"))) {
 
 library(tidyverse)
 library(Hmisc, quietly = TRUE)
+library(depigner)
+library(pander)
+panderOptions("round", 2)
+panderOptions("table.split.table", Inf)
+panderOptions("table.alignment.default",
+    function(df) {
+        n <- length(df) - 1L
+        c("left", rep("center", n))
+    }
+)
+
+knitr::opts_chunk$set(
+  error = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  collapse = TRUE,
+  comment = "",
+  out.width = "80%",
+  width     = 160,
+  fig.width = 16,
+  fig.height = 11
+)
 ```
 
 
@@ -68,7 +96,7 @@ n_survay %>%
 ```{r}
 desc <- describe(presto_base)
 plot(desc)
-html(desc)
+if (params$html) html(desc) else desc
 
 db_to_desc <- presto_base %>%
   select(last_page, domain, completed, country_name, region_name, status) %>% 
@@ -82,6 +110,7 @@ summary(
   continuous = 4,
   test = TRUE
 ) %>% 
-  print(prtest = "P", exclude1 = FALSE, long = TRUE)
+  tidy_summary(prtest = "P", exclude1 = FALSE, long = TRUE) %>% 
+  pander()
 ```
 
