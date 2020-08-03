@@ -36,7 +36,6 @@ Suggests:
     janitor,
     rgeolocate
 Remotes:  
-    MarkEdmondson1234/googleAnalyticsR,
     MarkEdmondson1234/googleAuthR,
     briandconnelly/growthcurve,
     UBESP-DCTV/covid19ita
